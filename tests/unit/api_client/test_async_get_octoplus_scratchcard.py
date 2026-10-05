@@ -18,6 +18,7 @@ from custom_components.octopus_energy.octoplus import is_scratchcard_available
   (None, None, False),
   ({"externalReference": "session-reference"}, None, True),
   ({"externalReference": "session-reference"}, {"status": "PRIZE_CLAIMED"}, False),
+  ({"externalReference": "session-reference"}, {"status": "DID_NOT_WIN"}, False),
 ])
 async def test_authenticated_scratchcard_query(active_session, scratchcard, expected):
   client = OctopusEnergyApiClient("test-api-key")
