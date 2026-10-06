@@ -16,6 +16,30 @@ Determines the current Octoplus points balance. This sensor will only be availab
 | `redeemable_points` | `integer` | The number of points that can be redeemed into account credit |
 | `data_last_retrieved` | `datetime` | The date/time the underlying data was last retrieved from Octopus Energy APIs |
 
+## Octoplus Scratchcard Available
+
+`binary_sensor.octopus_energy_{{ACCOUNT_ID}}_octoplus_scratchcard_available`
+
+Indicates whether the weekly Octoplus scratchcard is available to scratch. It is `on` when Octopus reports an active session with no scratchcard, and `off` when there is no active session or the scratchcard has already been scratched.
+
+Data is refreshed every 15 minutes. The sensor is unavailable until data has been successfully retrieved; if a later request fails, the last successful data is retained while retrying.
+
+!!! note
+    This will only be available if you have enrolled into Octoplus. Once enrolled, reload the integration to gain access to this sensor.
+
+| Attribute | Type | Description |
+|-----------|------|-------------|
+| `starts_at` | `datetime` | The active session's start time |
+| `ends_at` | `datetime` | The active session's end time |
+| `session_external_reference` | `string` | The active session's external reference |
+| `scratchcard_external_reference` | `string` | The scratchcard's external reference |
+| `scratchcard_status` | `string` | The scratchcard's status, such as `PRIZE_CLAIMED` |
+| `offer_slug` | `string` | The scratchcard offer's slug |
+| `feature_display_text` | `string` | The scratchcard offer's display text |
+| `prize_type` | `string` | The GraphQL type of the scratchcard prize |
+
+Attributes are `null` when the corresponding data is not present.
+
 ## Octopus Power Down
 
 These sensors are for [Octopus Saving Sessions](https://octopus.energy/saving-sessions/), branded as "Power Down" sessions.
@@ -526,4 +550,3 @@ Determines the current number of weekend happy hours available for use. This sen
 ## Services
 
 There are some services available relating to these entities that you might find useful. They can be found in the [services docs](../services.md#octoplus).
-
