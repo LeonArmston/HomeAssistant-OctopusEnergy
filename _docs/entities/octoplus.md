@@ -22,7 +22,7 @@ Determines the current Octoplus points balance. This sensor will only be availab
 
 Indicates whether the weekly Octoplus scratchcard is available to scratch. It is `on` when Octopus reports an active session with no scratchcard, and `off` when there is no active session or the scratchcard has already been scratched.
 
-Data is refreshed every 15 minutes. The sensor is unavailable until data has been successfully retrieved; if a later request fails, the last successful data is retained while retrying.
+Data is refreshed every 60 minutes. The sensor is unavailable until data has been successfully retrieved; if a later request fails, the last successful data is retained while retrying.
 
 !!! note
     This will only be available if you have enrolled into Octoplus. Once enrolled, reload the integration to gain access to this sensor.
