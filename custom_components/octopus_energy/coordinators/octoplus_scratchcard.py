@@ -51,6 +51,7 @@ async def async_refresh_octoplus_scratchcard(
 
 async def async_setup_octoplus_scratchcard_coordinator(hass, account_id: str):
   async def async_update_data():
+    """Fetch data from API endpoint."""
     account_data = hass.data[DOMAIN][account_id]
     account_data[DATA_OCTOPLUS_SCRATCHCARD] = await async_refresh_octoplus_scratchcard(
       now(),
